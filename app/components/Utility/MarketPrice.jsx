@@ -53,7 +53,7 @@ class MarketPrice extends React.Component {
     }
 
     render() {
-        let {marketStats, marketStatsInverted} = this.props;
+        let {marketStats, marketStatsInverted,invert} = this.props;
         let price = marketStats && marketStats.price ? marketStats.price : null;
         if (!price && marketStatsInverted && marketStatsInverted.price) {
             price = marketStatsInverted.price.invert();
@@ -66,6 +66,7 @@ class MarketPrice extends React.Component {
                         base_amount={price.base.amount} base_asset={price.base.asset_id}
                         quote_amount={price.quote.amount} quote_asset={price.quote.asset_id}
                         hide_symbols
+                        invert={invert}
                     />
                     : "n/a"
                 }
