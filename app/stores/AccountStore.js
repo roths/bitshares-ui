@@ -34,7 +34,8 @@ class AccountStore extends BaseStore {
             onChangeSetting: SettingsActions.changeSetting,
             onSetWallet: WalletActions.setWallet,
             onAddStarAccount: AccountActions.addStarAccount,
-            onRemoveStarAccount: AccountActions.removeStarAccount
+            onRemoveStarAccount: AccountActions.removeStarAccount,
+            onLogout: AccountActions.logout
             // onNewPrivateKeys: [ PrivateKeyActions.loadDbData, PrivateKeyActions.addKey ]
         });
 
@@ -97,6 +98,14 @@ class AccountStore extends BaseStore {
     reset() {
         if (this.state.subbed) ChainStore.unsubscribe(this.chainStoreUpdate);
         this.setState(this._getInitialState());
+    }
+
+    onLogout() {
+        const passwordAccountKey = this._getStorageKey("passwordAccount");
+        const currentAccountKey = this._getStorageKey("currentAccount");
+        accountStorage.set(passwordAccountKey, null);
+        accountStorage.set(currentAccountKey, null);
+        this.setState({passwordAccount : null, currentAccountKey : null});
     }
 
     onSetWallet({wallet_name}) {

@@ -116,6 +116,14 @@ class Header extends React.Component {
         this._closeDropdown();
     }
 
+    _toggleReset(e) {
+        e.preventDefault();
+        WalletUnlockActions.lock();
+        AccountActions.logout();
+        this.context.router.push("/");
+        this._closeDropdown();
+    }
+
     _onNavigate(route, e) {
         e.preventDefault();
 
@@ -203,7 +211,7 @@ class Header extends React.Component {
         let maxHeight = Math.max(40, height - 67 - 36) + "px";
 
         const a = ChainStore.getAccount(currentAccount);
-        const isMyAccount = !a ? false : AccountStore.isMyAccount(a);
+        const isMyAccount = !a ? false : AccountStore.isMyAccount(a) && !WalletDb.isLocked();
         const isContact = this.props.linkedAccounts.has(currentAccount);
         const enableDepositWithdraw = Apis.instance().chain_id.substr(0, 8) === "4018d784" && isMyAccount;
 
@@ -248,7 +256,7 @@ class Header extends React.Component {
                 <a className="button create-account" onClick={this._onNavigate.bind(this, "/create-account")} style={{padding: "1rem", border: "none"}} >
                     <Icon className="icon-14px" name="user"/> <Translate content="header.create_account" />
                 </a>
-            </ActionSheet.Button>
+        </ActionSheet.Button>
         ) : null;
 
         // let lock_unlock = ((!!this.props.current_wallet) || passwordLogin) ? (
@@ -327,12 +335,12 @@ class Header extends React.Component {
                                 <Translate component="span" content="header.explorer" />
                             </a>
                         </li>
-                        {!!createAccountLink ? null : <li className="column-hide-small">
+                        {/*!!createAccountLink ? null : <li className="column-hide-small">
                             <a style={{flexFlow: "row"}} onClick={this._showSend.bind(this)}>
                                 <Icon size="1_5x" style={{position: "relative", top: 0, left: -8}} name="transfer"/>
                                 <span><Translate content="header.payments_beta" /></span>
                             </a>
-                        </li>}
+                        </li>*/}
 
                         {!!createAccountLink ? <li>
                             <a style={{flexFlow: "row"}} className={cnames({active: active.indexOf("settings") !== -1})} onClick={this._onNavigate.bind(this, "/settings")}>
@@ -364,9 +372,13 @@ class Header extends React.Component {
                                     </li>
                                     <ul className="dropdown header-menu" style={{left: 0, top: 63, maxHeight: !this.state.dropdownActive ? 0 : maxHeight, overflowY: "auto"}}>
                                         <li className="divider" onClick={this._toggleLock.bind(this)}>
-                                            <div className="table-cell"><Icon size="2x" name="power" /></div>
-                                            <div className="table-cell"><Translate content={`header.${this.props.locked ? "unlock_short" : "lock_short"}`} /></div>
+                                            <div className="table-cell"><Icon size="2x" name={this.props.locked ? "locked" : "unlocked"} /></div>
+                                            <div className="table-cell"><Translate content={`header.${this.props.locked ? "unlock" : "lock"}`} /></div>
                                         </li>
+                                        <li className="divider" onClick={this._toggleReset.bind(this)}>
+                                            <div className="table-cell"><Icon size="2x" name="power" /></div>
+                                            <div className="table-cell"><Translate content="header.logout" /></div>
+                                        </li> 
 
                                         {!isMyAccount ? <li className="divider" onClick={this[isContact ? "_onUnLinkAccount" : "_onLinkAccount"].bind(this)}>
                                             <div className="table-cell"><Icon size="2x" name={`${isContact ? "minus" : "plus"}-circle`} /></div>

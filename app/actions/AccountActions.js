@@ -54,6 +54,10 @@ class AccountActions {
         return account;
     }
 
+    logout() {
+        return true;
+    }
+
     /**
      *  TODO:  This is a function of teh WalletApi and has no business being part of AccountActions
      */
