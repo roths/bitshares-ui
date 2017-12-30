@@ -20,7 +20,7 @@ export const settingsAPIs = {
     DEFAULT_WS_NODE: "wss://fake.automatic-selection.com",
     WS_NODE_LIST: [
         {url: "wss://fake.automatic-selection.com", location: {translate: "settings.api_closest"}},
-        {url: "ws://127.0.0.1:8090", location: "Locally hosted"},
+        {url: "wss://superledger.online/ws", location: "HK super"},
         {url: "wss://bitshares.openledger.info/ws", location: "Nuremberg, Germany"},
         {url: "wss://eu.openledger.info/ws", location: "Berlin, Germany"},
         {url: "wss://bit.btsabc.org/ws", location: "Hong Kong"},
@@ -37,9 +37,9 @@ export const settingsAPIs = {
         {url: "wss://dexnode.net/ws", location: "Dallas, USA"},
         {url: "wss://la.dexnode.net/ws", location: "Los Angeles, USA"}
     ],
-    DEFAULT_FAUCET: "https://faucet.bitshares.eu/onboarding",  // 2017-12-infrastructure worker proposal
-    TESTNET_FAUCET: "https://faucet.testnet.bitshares.eu",
-    RPC_URL: "https://openledger.info/api/"
+    DEFAULT_FAUCET: "https://superledger.online/reg",  // 2017-12-infrastructure worker proposal
+    TESTNET_FAUCET: "https://superledger.online/reg",
+    RPC_URL: "http://superledger.online/reg/api/"
 };
 
 export const  gdexAPIs = {
