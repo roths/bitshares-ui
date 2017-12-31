@@ -6,11 +6,16 @@ import cname from "classnames";
 import WalletDb from "stores/WalletDb";
 import PasswordConfirm from "./PasswordConfirm";
 import counterpart from "counterpart";
+import BackupActions from "actions/BackupActions"
 
 export default class WalletChangePassword extends Component {
     constructor() {
         super()
         this.state = {success: false}
+    }
+
+    componentWillMount() {
+        BackupActions.reset();
     }
 
     onAccept(e) {
