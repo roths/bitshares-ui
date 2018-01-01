@@ -116,14 +116,6 @@ class Header extends React.Component {
         this._closeDropdown();
     }
 
-    _toggleReset(e) {
-        e.preventDefault();
-        WalletUnlockActions.lock();
-        AccountActions.logout();
-        this.context.router.push("/");
-        this._closeDropdown();
-    }
-
     _onNavigate(route, e) {
         e.preventDefault();
 
@@ -375,10 +367,6 @@ class Header extends React.Component {
                                             <div className="table-cell"><Icon size="2x" name={this.props.locked ? "locked" : "unlocked"} /></div>
                                             <div className="table-cell"><Translate content={`header.${this.props.locked ? "unlock" : "lock"}`} /></div>
                                         </li>
-                                        <li className="divider" onClick={this._toggleReset.bind(this)}>
-                                            <div className="table-cell"><Icon size="2x" name="power" /></div>
-                                            <div className="table-cell"><Translate content="header.logout" /></div>
-                                        </li> 
 
                                         {!isMyAccount ? <li className="divider" onClick={this[isContact ? "_onUnLinkAccount" : "_onLinkAccount"].bind(this)}>
                                             <div className="table-cell"><Icon size="2x" name={`${isContact ? "minus" : "plus"}-circle`} /></div>
