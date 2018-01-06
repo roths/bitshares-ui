@@ -23,6 +23,7 @@ import notify from "actions/NotificationActions";
 // import IntlActions from "actions/IntlActions";
 import AccountImage from "../Account/AccountImage";
 import {ChainStore} from "bitsharesjs";
+import AccountID from "../Account/AccountID";
 
 var logo = require("assets/logo-ico-blue.png");
 
@@ -202,8 +203,8 @@ class Header extends React.Component {
         let tradingAccounts = AccountStore.getMyAccounts();
         let maxHeight = Math.max(40, height - 67 - 36) + "px";
 
-        const a = ChainStore.getAccount(currentAccount);
-        const isMyAccount = !a ? false : AccountStore.isMyAccount(a) && !WalletDb.isLocked();
+        const chainAccount = ChainStore.getAccount(currentAccount);
+        const isMyAccount = !chainAccount ? false : AccountStore.isMyAccount(chainAccount) && !WalletDb.isLocked();
         const isContact = this.props.linkedAccounts.has(currentAccount);
         const enableDepositWithdraw = Apis.instance().chain_id.substr(0, 8) === "4018d784" && isMyAccount;
 
@@ -232,6 +233,12 @@ class Header extends React.Component {
                                     style={{minHeight: 15}}
                                 />
                             </div>) : null;
+
+        let walletID = currentAccount ?  
+                            <AccountID 
+                                account={currentAccount}
+                            /> 
+                            : null;
 
         let dashboard = (
             <a
@@ -327,6 +334,13 @@ class Header extends React.Component {
                                 <Translate component="span" content="header.explorer" />
                             </a>
                         </li>
+                        {!currentAccount || !!createAccountLink ? null : 
+                        <li className="column-hide-small">
+                            <a style={{flexFlow: "row"}} className={cnames({active: active.indexOf("deposit-withdraw") !== -1})} onClick={this._onNavigate.bind(this, "/deposit-withdraw")}>
+                                <Icon size="2x" style={{position: "relative", top: 0, left: -8}} name="deposit"/>
+                                <Translate component="span" content="gateway.deposit" />
+                            </a>
+                        </li>}
                         {/*!!createAccountLink ? null : <li className="column-hide-small">
                             <a style={{flexFlow: "row"}} onClick={this._showSend.bind(this)}>
                                 <Icon size="1_5x" style={{position: "relative", top: 0, left: -8}} name="transfer"/>
@@ -340,6 +354,12 @@ class Header extends React.Component {
                                 <span><Translate content="header.settings" /></span>
                             </a>
                         </li> : null}
+                        <li>
+                            <a style={{flexFlow: "row"}} className={cnames({active: active.indexOf("settings") !== -1})} href="https://www.jianshu.com/p/9215aa5d3589">
+                                <span>教程</span>
+                            </a>
+                        </li>
+                        
                         {/* {enableDepositWithdraw && currentAccount && myAccounts.indexOf(currentAccount) !== -1 ? <li><Link to={"/deposit-withdraw/"} activeClassName="active"><Translate content="account.deposit_withdraw"/></Link></li> : null} */}
                     </ul>
                 </div>
@@ -356,13 +376,14 @@ class Header extends React.Component {
                                         <div onClick={() => {this.setState({dropdownActive: !this.state.dropdownActive});}} className="table-cell" style={{flex: 1}}>
                                             <div style={{lineHeight: "initial", display: "inline-block", paddingRight: 20}}>
                                                 <span>{currentAccount}</span>
+                                                {walletID}
                                                 {walletBalance}
                                                 <span className="caret">{caret}</span>
                                             </div>
 
                                         </div>
                                     </li>
-                                    <ul className="dropdown header-menu" style={{left: 0, top: 63, maxHeight: !this.state.dropdownActive ? 0 : maxHeight, overflowY: "auto"}}>
+                                    <ul className="dropdown header-menu" style={{left: 0, top: 80, maxHeight: !this.state.dropdownActive ? 0 : maxHeight, overflowY: "auto"}}>
                                         <li className="divider" onClick={this._toggleLock.bind(this)}>
                                             <div className="table-cell"><Icon size="2x" name={this.props.locked ? "locked" : "unlocked"} /></div>
                                             <div className="table-cell"><Translate content={`header.${this.props.locked ? "unlock" : "lock"}`} /></div>

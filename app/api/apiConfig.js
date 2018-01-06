@@ -56,3 +56,19 @@ export const  gdexAPIs = {
     USER_AGREEMENT: "/gateway/user/isAgree",
     WITHDRAW_RULE: "/gateway/withdraw/rule"
 }
+
+
+export const  superAPIs = {
+    BASE: "https://api.superledger.online",
+    ASSET_LIST: "/gateway/asset/assetList",
+    ASSET_DETAIL: "/gateway/asset/assetDetail",
+    GET_DEPOSIT_ADDRESS: "/gateway/address/getAddress",
+    CHECK_WITHDRAY_ADDRESS: "/gateway/address/checkAddress",
+    DEPOSIT_RECORD_LIST: "/gateway/deposit/recordList",
+    DEPOSIT_RECORD_DETAIL: "/gateway/deposit/recordDetail",
+    WITHDRAW_RECORD_LIST: "/gateway/withdraw/recordList",
+    WITHDRAW_RECORD_DETAIL: "/gateway/withdraw/recordDetail",
+    GET_USER_INFO: "/gateway/user/getUserInfo",
+    USER_AGREEMENT: "/gateway/user/isAgree",
+    WITHDRAW_RULE: "/gateway/withdraw/rule"
+}

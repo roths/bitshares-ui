@@ -459,7 +459,7 @@
 		"amount": "金额",
 		"to": "发往",
 		"memo": "备注消息",
-		"fee": "手续费",
+		"fee": "系统手续费",
 		"send": "发送",
 		"final": "转账后余额",
 		"balances": "余额",
@@ -472,7 +472,7 @@
 			"noFeeBalance": "当前所选资产余额不足以支付手续费, 请换一种用来支付手续费的资产。",
 			"noPoolBalance": "这个资产没有充足的手续费池余额用来支付手续费了，请联系资产所有者或换一种资产。",
 			"minimum_amount": "最小提现金额：%(amount)s %(symbol)s",
-			"memo_error":"转账备注解析错误，请稍候再试。"
+			"memo_error":"转账备注错误。"
 		},
 		"back": "返回",
 		"confirm": "确认发送",
@@ -1281,6 +1281,11 @@
 		"enter_refcode": "输入推荐码"
 	},
 	"gateway": {
+		"payway": {
+			"bank" : "银行",
+			"alipay": "支付宝",
+			"wechat": "微信"
+		},
 		"fee": "网关手续费",
 		"assets": {
 			"open": "<br/><br/>资产 %(asset)s 由真实资产 %(backed)s 1:1 储备背书。可以通过 Openledger 提供的网关服务进行充值提现。",
@@ -1317,12 +1322,14 @@
 		"recent_withdraw": "最近的提现",
 		"withdraw_summary": "提现摘要",
 		"withdraw_inst": "提现指示",
+		"deposit_to_click": "点击下方按钮进行 %(asset)s 充值",
 		"withdraw_to": "点击下方按钮进行 %(asset)s 提现",
 		"intermediate": "中间账户",
 		"asset_to_withdraw": "提现资产:",
 		"support_block": "获得客户支持，请联络 Blocktrades:",
 		"valid_address": "请输入合法的 %(coin_type)s 地址",
 		"withdraw_coin": "提现 %(coin)s (%(symbol)s)",
+		"desposit_coin": "充值 %(coin)s",
 		"limit": "限额: %(amount)s %(symbol)s",
 		"bridge_text": "桥接能让你将一种资产转变成另一种资产，比如从 BTC 转换到 BTS。",
 		"gateway_text": "网关能让你将BitShares中的资产与外部资产进行互换，比如OPEN.BTC到BTC。",
