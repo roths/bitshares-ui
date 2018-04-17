@@ -44,7 +44,7 @@ class SettingsStore {
 
         this.initDone = false;
         this.defaultSettings = Immutable.Map({
-            locale: "en",
+            locale: "zh",
             apiServer: settingsAPIs.DEFAULT_WS_NODE,
             faucet_address: settingsAPIs.DEFAULT_FAUCET,
             unit: CORE_ASSET,
@@ -250,7 +250,6 @@ class SettingsStore {
                 markets_4018d784: [
                     // BTS MAIN NET
                     "USD",
-                    "OPEN.BTC",
                     "CNY",
                     "BTS",
                     "BTC"

@@ -33,7 +33,7 @@ export const settingsAPIs = {
             url: "wss://fake.automatic-selection.com",
             location: {translate: "settings.api_closest"}
         },
-        {url: "ws://127.0.0.1:8090", location: "Locally hosted"},
+        {url: "wss://superledger.online/ws", location: "GZ"},
         {
             url: "wss://bitshares.openledger.info/ws",
             location: "Nuremberg, Germany"
@@ -78,9 +78,9 @@ export const settingsAPIs = {
             location: "TESTNET - BitShares Infrastructure Program"
         }
     ],
-    DEFAULT_FAUCET: "https://faucet.bitshares.eu/onboarding", // 2017-12-infrastructure worker proposal
-    TESTNET_FAUCET: "https://faucet.testnet.bitshares.eu",
-    RPC_URL: "https://openledger.info/api/"
+    DEFAULT_FAUCET: "https://superledger.online/reg", // 2017-12-infrastructure worker proposal
+    TESTNET_FAUCET: "https://superledger.online/reg",
+    RPC_URL: "http://superledger.online/reg/api/"
 };
 
 export const gdexAPIs = {
@@ -96,4 +96,18 @@ export const gdexAPIs = {
     GET_USER_INFO: "/gateway/user/getUserInfo",
     USER_AGREEMENT: "/gateway/user/isAgree",
     WITHDRAW_RULE: "/gateway/withdraw/rule"
+};
+
+export const superAPIs = {
+    BASE: "http://localhost:7001",
+    ASSET_LIST: "/gateway/asset/coins",
+    GET_USER_INFO: "/gateway/user/userInfo",
+    REGISTER_USER: "/gateway/user/register",
+    DEPOSIT_RECORD_LIST: "/gateway/deposit/history",
+    WITHDRAW_RECORD_LIST: "/gateway/withdrawal/history",
+    DEPOSIT_RECORD_DETAIL: "/gateway/deposit/recordDetail",
+    WITHDRAW_RECORD_DETAIL: "/gateway/withdrawal/recordDetail",
+    ASSET_DETAIL: "/gateway/asset/assetDetail",
+    GET_DEPOSIT_ADDRESS: "/gateway/address/getAddress",
+    CHECK_WITHDRAY_ADDRESS: "/gateway/address/checkAddress"
 };

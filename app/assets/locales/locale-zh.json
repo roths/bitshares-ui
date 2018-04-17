@@ -1474,6 +1474,11 @@
         "id": "提议 ID"
     },
     "gateway": {
+        "payway": {
+            "bank": "银行",
+            "alipay": "支付宝",
+            "wechat": "微信"
+        },
         "fee": "网关手续费",
         "title": "充值和提现",
         "assets": {

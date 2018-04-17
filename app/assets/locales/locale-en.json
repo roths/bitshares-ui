@@ -1655,6 +1655,11 @@
         "id": "Proposal object id"
     },
     "gateway": {
+        "payway": {
+            "bank": "bank",
+            "alipay": "alipay",
+            "wechat": "wechat"
+        },
         "deposit_notice_delay":
             "(new address can be generated once per 5 minutes)",
         "min_deposit_warning_amount":

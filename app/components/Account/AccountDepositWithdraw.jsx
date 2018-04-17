@@ -22,6 +22,7 @@ import GatewayActions from "actions/GatewayActions";
 import AccountImage from "../Account/AccountImage";
 import GdexGateway from "../DepositWithdraw/gdex/GdexGateway";
 import WinexGateway from "../DepositWithdraw/winex/WinexGateway";
+import SuperGateway from "../DepositWithdraw/super/SuperGateway";
 
 class AccountDepositWithdraw extends React.Component {
     static propTypes = {
@@ -126,6 +127,15 @@ class AccountDepositWithdraw extends React.Component {
         let {olService, btService, rudexService} = this.state;
 
         serList.push({
+            name: "SuperLedger",
+            template: (
+                <div>
+                    <SuperGateway account={account} provider="Super" />
+                </div>
+            )
+        });
+
+        serList.push({
             name: "Openledger (OPEN.X)",
             template: (
                 <div className="content-block">
@@ -159,7 +169,10 @@ class AccountDepositWithdraw extends React.Component {
                                     olService === "fiat" ? "is-active" : ""
                                 }
                             >
-                                <Translate component="a" content="gateway.fiat" />
+                                <Translate
+                                    component="a"
+                                    content="gateway.fiat"
+                                />
                             </li>
                         </ul>
                     </div>
@@ -371,6 +384,7 @@ class AccountDepositWithdraw extends React.Component {
         });
 
         const serviceNames = [
+            "Super",
             "Winex",
             "GDEX",
             "OPEN",
