@@ -10,8 +10,8 @@ import {precisionToRatio} from "../../../lib/common/MarketClasses";
 const DEPOSIT_STATUS = {
     0: "confirming",
     1: "success",
-    2: "waiting",
-    3: "transfering",
+    2: "transfering",
+    3: "waiting",
     4: "fail"
 };
 const WITHDRAW_STATUS = {

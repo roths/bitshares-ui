@@ -126,14 +126,14 @@ class AccountDepositWithdraw extends React.Component {
         let {account} = this.props;
         let {olService, btService, rudexService} = this.state;
 
-        serList.push({
-            name: "SuperLedger",
-            template: (
-                <div>
-                    <SuperGateway account={account} provider="Super" />
-                </div>
-            )
-        });
+        // serList.push({
+        //     name: "SuperLedger",
+        //     template: (
+        //         <div>
+        //             <SuperGateway account={account} provider="Super" />
+        //         </div>
+        //     )
+        // });
 
         serList.push({
             name: "Openledger (OPEN.X)",

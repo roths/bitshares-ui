@@ -78,9 +78,9 @@ export const settingsAPIs = {
             location: "TESTNET - BitShares Infrastructure Program"
         }
     ],
-    DEFAULT_FAUCET: "https://superledger.online/reg", // 2017-12-infrastructure worker proposal
-    TESTNET_FAUCET: "https://superledger.online/reg",
-    RPC_URL: "http://superledger.online/reg/api/"
+    DEFAULT_FAUCET: "https://api.superledger.online/reg", // 2017-12-infrastructure worker proposal
+    TESTNET_FAUCET: "https://api.superledger.online/reg",
+    RPC_URL: "https://openledger.info/api/"
 };
 
 export const gdexAPIs = {
