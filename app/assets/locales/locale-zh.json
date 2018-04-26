@@ -148,14 +148,19 @@
         "transactions": {
             "id": "ID"
         },
+        "optional": {
+            "formatter": "{restore_link}或者可以通过{restore_form}创建账号。",
+            "restore_link": "恢复钱包",
+            "restore_form": "钱包模式"
+        },
         "search": "Search for an account",
         "new_user": "新用户？",
         "existing_user": "老用户",
         "restore": "还原",
         "advanced": "高级",
-        "intro_text_title": "欢迎使用比特股去中心化交易所！",
+        "intro_text_title": "欢迎使用超级网关去中心化交易所！",
         "intro_text_1":
-            "<b>比特股2.0</b>是一个基于区块链构建的去中心化交易所（通称DEX）。 DEX有着工业级的业务处理能力，能够永不停歇地提供公正和透明的服务，这里有比特股首创的bitCNY,bitUSD等智能货币，用户可以在这里根据自己的需要发行用户定义资产（UIA），也可以买卖通用的数字资产如BTC、ETH等。",
+            "<b>超级网关</b>是一个基于区块链构建的去中心化交易所（通称DEX）。 DEX有着工业级的业务处理能力，能够永不停歇地提供公正和透明的服务，这里有比特股首创的bitCNY,bitUSD等智能货币，用户可以在这里根据自己的需要发行用户定义资产（UIA），也可以买卖通用的数字资产如BTC、ETH等。",
         "intro_text_2":
             "发行用户定义资产（UIA），也可以买卖通用的数字资产如BTC、ETH等。",
         "intro_text_3": "尽情享受交易的乐趣吧！",
@@ -1035,6 +1040,7 @@
         "active_node": "当前使用的节点",
         "node_up": "在线",
         "node_down": "离线",
+        "switch": "更换节点",
         "available_nodes": "可用节点",
         "hidden_nodes": "隐藏节点",
         "show": "显示",
@@ -1067,6 +1073,7 @@
         "latency": "网络延迟"
     },
     "exchange": {
+        "trading_pair": "交易对",
         "chart_options": {
             "tools": "工具",
             "title": "指标",
@@ -1099,7 +1106,8 @@
         "latest": "最新成交价",
         "call": "平仓触发价",
         "core_rate": "手续费率",
-        "settle": "喂价",
+        "feed_price": "喂价",
+        "settle": "清算价",
         "squeeze": "强制平仓价",
         "maintenance": "维持保证金价",
         "your_price": "你的强平触发价",
@@ -1164,6 +1172,11 @@
         "quote": "报价货币：",
         "search": "搜索更多交易对",
         "order_value": "委单价值"
+    },
+    "dashboard": {
+        "starred_markets": "收藏市场",
+        "featured_markets": "其他市场",
+        "table_empty": "没有匹配的市场"
     },
     "fees": {
         "title": "费率表"
